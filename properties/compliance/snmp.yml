@@ -1,0 +1,6 @@
+---
+snmp:
+  ifmib:
+    ifindex:
+      persist:
+      - null

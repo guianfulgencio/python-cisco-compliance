@@ -1,0 +1,20 @@
+---
+username:
+- name: expert
+  secret:
+    encryption: '9'
+    secret: "$9$oVo20fvRydA9nU$6fCPBwsSR8XE2XVCQ0CM.zUZw0hJjkvBaAdr8nqILy2"
+- name: expert_auto
+  secret:
+    encryption: '9'
+    secret: "$9$HnfNJNGt9mdkqE$QA/wab/mHi/hekHIf1R8F1G67JnL2NplLCTq.01n.TA"
+- name: admin
+  secret:
+    encryption: '9'
+    secret: "$9$ZOaTOHeUD.D35.$kpfWDRzpdXenZuq3uijhObYMo5NG33wpdxmyuitJkQA"
+- name: admin_auto
+  secret:
+    encryption: '9'
+    secret: "$9$DYm1hKH0NwmM/U$mMK/kBSbwS.R6T6mvGIl9uyCvScCSpKh6XZ7uDpdkI6"
+
+

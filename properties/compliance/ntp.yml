@@ -1,0 +1,30 @@
+---
+ntp:
+  access-group:
+    peer:
+      acl: 40
+
+  server:
+    APAC:
+      server-list:
+      - ip-address: 134.248.2.29
+      - ip-address: 146.40.10.21
+        prefer:
+        - null
+
+    US:
+      server-list:
+      - ip-address: 146.22.8.197
+      - ip-address: 134.248.2.29
+      - ip-address: 146.22.70.251
+        prefer:
+        - null
+
+    EMEA:
+      server-list:
+      - ip-address: 146.22.70.251
+      - ip-address: 146.38.105.70
+      - ip-address: 146.38.37.9
+        prefer:
+        - null
+

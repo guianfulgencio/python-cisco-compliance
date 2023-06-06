@@ -1,0 +1,15 @@
+---
+call-home:
+
+  contact-email-addr: nmbtcon@chevron.com
+
+  profile:
+  - profile-name: CSSM
+    active: true
+    destination:
+      transport-method: http
+      address:
+        http: http://cssm.chevron.net/Transportgateway/services/DeviceRequestHandler
+
+  - profile-name: CiscoTAC-1
+

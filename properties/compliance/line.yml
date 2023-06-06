@@ -1,0 +1,52 @@
+---
+line:
+
+  aux:
+  - first: '0'
+    password:
+      type: '7'
+      secret: 0123575C5E5B534160475C064525
+    stopbits: '1'
+
+  console:
+  - first: '0'
+    password:
+      type: '7'
+      secret: 0123575C5E5B534160475C064525
+    session-timeout:
+      session-timeout-value: 10
+    stopbits: '1'
+
+  vty:
+  - first: 0
+    last: 4
+    access-class:
+      acccess-list:
+      - direction: in
+        access-list: 20
+    password:
+      type: '7'
+      secret: 0123575C5E5B534160475C064525
+    session-timeout:
+      session-timeout-value: 10
+    transport:
+      input:
+        input:
+        - ssh
+
+  - first: 5
+    last: 15
+    access-class:
+      acccess-list:
+      - direction: in
+        access-list: 20
+    password:
+      type: '7'
+      secret: 0123575C5E5B534160475C064525
+    session-timeout:
+      session-timeout-value: 10
+    transport:
+      input:
+        input:
+        - ssh
+

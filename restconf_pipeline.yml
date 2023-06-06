@@ -1,0 +1,85 @@
+---
+  resources:
+    repositories:
+    - repository: self
+
+  variables:
+  - group: restconf
+
+  trigger:
+    # none
+    branches:
+      include: 
+      - master
+
+  stages:
+  - stage: "DEV_Restconf"
+    displayName: "[DEV] Network-as-code using RESTconf"
+    pool: ITC-ITSD-NA-Ansible-UK
+    condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
+    jobs:
+    - job: "Network_as_code_using_restconf_dev"
+      steps:
+      - checkout: self
+        clean: True
+        persistCredentials: True
+
+      - script: pip install -r requirements.txt
+        displayName: "Install Dependencies"
+
+      - script: git clone https://rugm:$(PAT)@dev.azure.com/chevron/ITC-ITSD-AnsibleNetworkAzure/_git/phhq_device_configurations
+        displayName: "Clone phhq_device_configurations git repo"
+
+      - script: python3 cml_lab/scripts/prepare_lab.py -u $(cml_username) -p "$(cml_password)"
+        displayName: "Prepare PHHQ CML Dev environment"
+
+      - script: python3 tests/scripts/configuration_test.py --environment DEV --username $(svc_username) --password "$(svc_password)"
+        displayName: "[DEV] - PRECHECK tests"
+
+      - script: python3 network_as_code.py --environment DEV --username $(svc_username) --password "$(svc_password)"        
+        displayName: "[DEV] - Config management using Restconf"
+
+      - script: python3 tests/scripts/configuration_test.py --environment DEV --username $(svc_username) --password "$(svc_password)"
+        displayName: "[DEV] - POSTCHECK tests"
+
+      - script: python3 git_scripts/get_running_config.py --environment DEV --username $(svc_username) --password "$(svc_password)"
+        displayName: "[DEV] - Capture device CLI running configuration"
+
+      - script: python3 git_scripts/git_push.py
+        displayName: "[DEV] - Git push running config changes"
+
+      - script: python3 cml_lab/scripts/destroy_lab.py -u $(cml_username) -p "$(cml_password)"
+        displayName: "Destroy PHHQ CML Dev environment"
+        condition: always()
+        
+  - stage: "PROD_Restconf"
+    displayName: "[PROD] Network-as-code using RESTconf"
+    pool: ITC-ITSD-NA-Ansible-UK
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+    jobs:
+    - job: "Network_as_code_using_restconf_prod"
+      steps:
+      - checkout: self
+        clean: True
+        persistCredentials: True
+
+      - script: pip install -r requirements.txt
+        displayName: "Install Dependencies"
+
+      - script: git clone https://rugm:$(PAT)@dev.azure.com/chevron/ITC-ITSD-AnsibleNetworkAzure/_git/phhq_device_configurations
+        displayName: "Clone phhq_device_configurations git repo"
+
+      - script: python3 tests/scripts/configuration_test.py --environment PROD --username $(svc_username) --password "$(svc_password)"
+        displayName: "[PROD] - PRECHECK tests"
+
+      - script: python3 CICD.py --environment PROD --username $(svc_username) --password "$(svc_password)"        
+        displayName: "[PROD - Config management using Restconf"
+
+      - script: python3 tests/scripts/configuration_test.py --environment PROD --username $(svc_username) --password "$(svc_password)"
+        displayName: "[PROD] - POSTCHECK tests"
+
+      - script: python3 git_scripts/get_running_config.py --environment PROD --username $(svc_username) --password "$(svc_password)"
+        displayName: "[PROD] - Capture device CLI running configuration"
+
+      - script: python3 git_scripts/git_push.py
+        displayName: "[PROD] - Git push running config changes"

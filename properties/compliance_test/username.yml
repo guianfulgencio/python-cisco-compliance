@@ -1,0 +1,7 @@
+---
+username:
+- name: expert
+  privilege: 15
+  secret:
+    encryption: '9'
+    secret: "$9$oVo20fvRydA9nU$6fCPBwsSR8XE2XVCQ0CM.zUZw0hJjkvBaAdr8nqILy2"

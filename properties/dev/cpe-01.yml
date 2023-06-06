@@ -1,0 +1,56 @@
+---
+hostname: cpe-01
+
+location:
+  Facility: PHHQ
+  Address: 6750 Ayala Ave, 6Th Flr, Makati City, Metro Manila
+  Country: Philippines
+  Region: APAC
+  ISO-country-code: PH
+  Support-Org: NA
+  Utility-name: Campus-Metro
+  Criticality: Criticality-Medium
+
+interface:
+  GigabitEthernet:
+  - name: '1'
+    ip:
+      vrf:
+        forwarding:
+          word: management
+      address:
+        dhcp: {}
+    Cisco-IOS-XE-ethernet:negotiation:
+      auto: true
+  - name: '2'
+    shutdown:
+    -
+    ip:
+      address:
+        primary:
+          address: 1.1.1.2
+          mask: 255.255.255.0
+    Cisco-IOS-XE-ethernet:negotiation:
+      auto: true
+  - name: '3'
+    shutdown:
+    -
+    Cisco-IOS-XE-ethernet:negotiation:
+      auto: true
+  - name: '4'
+    shutdown:
+    -
+    Cisco-IOS-XE-ethernet:negotiation:
+      auto: true
+
+route:
+  ip-route-interface-forwarding-list:
+  - prefix: 0.0.0.0
+    mask: 0.0.0.0
+    fwd-list:
+    - fwd: 146.40.113.1
+
+management:
+  interface:
+    name: GigabitEthernet
+    number: 1

@@ -1,0 +1,31 @@
+---
+line:
+  aux:
+  - first: '0'
+  console:
+  - first: '0'
+    exec-timeout:
+      minutes: 0
+      seconds: 0
+    stopbits: '1'
+  vty:
+  - first: 0
+    last: 4
+    length: 0
+    login:
+      local:
+      -
+    transport:
+      input:
+        input:
+        - ssh
+  - first: 5
+    last: 15
+    length: 0
+    login:
+      local:
+      -
+    transport:
+      input:
+        input:
+        - ssh

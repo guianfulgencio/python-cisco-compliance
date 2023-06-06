@@ -1,0 +1,6 @@
+---
+vtp:
+  domain: "site_code"
+  mode:
+    'off': {}
+

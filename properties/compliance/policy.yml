@@ -1,0 +1,234 @@
+---
+policy:
+
+  class-map:
+  - name: DSCP-AF1x
+    prematch: match-any
+    match:
+      dscp:
+      - af11
+      - af12
+      - af13
+  - name: DSCP-AF2x
+    prematch: match-any
+    match:
+      dscp:
+      - af21
+      - af22
+      - af23
+  - name: DSCP-AF3x
+    prematch: match-any
+    match:
+      dscp:
+      - af31
+      - af32
+      - af33
+  - name: DSCP-AF4x
+    prematch: match-any
+    match:
+      dscp:
+      - af41
+      - af42
+      - af43
+  - name: DSCP-CSx
+    prematch: match-any
+    match:
+      dscp:
+      - cs3
+      - cs6
+  - name: DSCP-EF
+    prematch: match-any
+    match:
+      dscp:
+      - ef
+  - name: LAN-MARK-AF1
+    prematch: match-any
+    match:
+      access-group:
+        name:
+        - MARK-DSCP-AF11
+  - name: LAN-MARK-AF2
+    prematch: match-any
+    match:
+      access-group:
+        name:
+        - MARK-DSCP-AF21
+  - name: LAN-MARK-AF3
+    prematch: match-any
+  - name: LAN-MARK-AF4
+    prematch: match-any
+    match:
+      access-group:
+        name:
+        - MARK-DSCP-AF41
+  - name: LAN-MARK-CS3
+    prematch: match-any
+    match:
+      access-group:
+        name:
+        - MARK-DSCP-CS3
+  - name: LAN-MARK-EF
+    prematch: match-any
+    match:
+      access-group:
+        name:
+        - MARK-DSCP-EF
+  - name: non-client-nrt-class
+    prematch: match-any
+  - name: system-cpp-default
+    prematch: match-any
+    description: Inter FED, EWLC control, EWLC data
+  - name: system-cpp-police-data
+    prematch: match-any
+    description: ICMP redirect, ICMP_GEN and BROADCAST
+  - name: system-cpp-police-dhcp-snooping
+    prematch: match-any
+    description: DHCP snooping
+  - name: system-cpp-police-dot1x-auth
+    prematch: match-any
+    description: DOT1X Auth
+  - name: system-cpp-police-forus
+    prematch: match-any
+    description: Forus Address resolution and Forus traffic
+  - name: system-cpp-police-l2-control
+    prematch: match-any
+    description: L2 control
+  - name: system-cpp-police-l2lvx-control
+    prematch: match-any
+    description: L2 LVX control packets
+  - name: system-cpp-police-multicast
+    prematch: match-any
+    description: Transit Traffic and MCAST Data
+  - name: system-cpp-police-multicast-end-station
+    prematch: match-any
+    description: MCAST END STATION
+  - name: system-cpp-police-protocol-snooping
+    prematch: match-any
+    description: Protocol snooping
+  - name: system-cpp-police-punt-webauth
+    prematch: match-any
+    description: Punt Webauth
+  - name: system-cpp-police-routing-control
+    prematch: match-any
+    description: Routing control and Low Latency
+  - name: system-cpp-police-stackwise-virt-control
+    prematch: match-any
+    description: Stackwise Virtual
+  - name: system-cpp-police-sw-forward
+    prematch: match-any
+    description: Sw forwarding, L2 LVX data, LOGGING
+  - name: system-cpp-police-sys-data
+    prematch: match-any
+    description: Learning cache ovfl, High Rate App, Exception, EGR Exception, NFL
+      SAMPLED DATA, RPF Failed
+  - name: system-cpp-police-system-critical
+    prematch: match-any
+    description: System Critical and Gold Pkt
+  - name: system-cpp-police-topology-control
+    prematch: match-any
+    description: Topology control
+
+
+  policy-map:
+  - name: LANQOS-OUT
+    class:
+    - name: DSCP-EF
+    - name: DSCP-AF4x
+      action-list:
+      - action-type: bandwidth
+        bandwidth:
+          remaining:
+            rem-option: percent
+            percent: 25
+      - action-type: random-detect
+        random-detect:
+          dscp-based:
+          -
+    - name: DSCP-AF3x
+      action-list:
+      - action-type: bandwidth
+        bandwidth:
+          remaining:
+            rem-option: percent
+            percent: 5
+      - action-type: random-detect
+        random-detect:
+          dscp-based:
+          -
+    - name: DSCP-AF2x
+      action-list:
+      - action-type: bandwidth
+        bandwidth:
+          remaining:
+            rem-option: percent
+            percent: 25
+      - action-type: random-detect
+        random-detect:
+          dscp-based:
+          -
+    - name: DSCP-AF1x
+      action-list:
+      - action-type: bandwidth
+        bandwidth:
+          remaining:
+            rem-option: percent
+            percent: 15
+      - action-type: random-detect
+        random-detect:
+          dscp-based:
+          -
+    - name: class-default
+      random-detect:
+      -
+      action-list:
+      - action-type: bandwidth
+        bandwidth:
+          remaining:
+            rem-option: percent
+            percent: 25
+  - name: SETDSCP
+    class:
+    - name: LAN-MARK-EF
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: ef
+    - name: LAN-MARK-AF4
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: af41
+    - name: LAN-MARK-AF3
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: af31
+    - name: LAN-MARK-AF2
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: af21
+    - name: LAN-MARK-AF1
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: af11
+    - name: LAN-MARK-CS3
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: cs3
+    - name: class-default
+      action-list:
+      - action-type: set
+        set:
+          dscp:
+            dscp-val: default
+  - name: system-cpp-policy
+

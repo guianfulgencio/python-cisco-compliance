@@ -1,0 +1,6 @@
+---
+enable:
+  secret:
+    type: '5'
+    secret: "$1$aCVG$IxHARIVCha1KN3tzaJTjc0"
+

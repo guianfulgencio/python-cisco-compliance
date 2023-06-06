@@ -1,0 +1,80 @@
+---
+hostname: PHHQ06FSL02-DEV
+
+location:
+  Facility: PHHQ
+  Address: 6750 Ayala Ave, 6Th Flr, Makati City, Metro Manila
+  Country: Philippines
+  Region: APAC
+  ISO-country-code: PH
+  Support-Org: NA
+  Utility-name: Campus-Metro
+  Criticality: Criticality-Medium
+
+interface:
+  GigabitEthernet:
+  - name: '1'
+    description: 6th Floor LAN segment
+    ip:
+      address:
+        primary:
+          address: 146.40.113.7
+          mask: 255.255.255.0
+      helper-address:
+      - address: 146.40.224.19
+      proxy-arp: false
+      redirects: false
+    load-interval: 30
+    mop:
+      enabled: false
+      sysid: false
+    negotiation:
+      auto: true
+
+  - name: '2'
+    description: Configured by Restconf
+    shutdown:
+    - null
+    mop:
+      enabled: false
+      sysid: false
+    negotiation:
+      auto: true
+
+  - name: '3'
+    description: Configured by Restconf
+    shutdown:
+    - null
+    mop:
+      enabled: false
+      sysid: false
+    negotiation:
+      auto: true
+
+  - name: '4'
+    description: Configured by Restconf
+    shutdown:
+    - null
+    mop:
+      enabled: false
+      sysid: false
+    negotiation:
+      auto: true
+
+
+route:
+  ip-route-interface-forwarding-list:
+  - prefix: 0.0.0.0
+    mask: 0.0.0.0
+    fwd-list:
+    - fwd: 146.40.113.1
+
+management:
+  interface:
+    name: GigabitEthernet
+    number: 1
+  ip:
+    address:
+      primary:
+        address: 146.40.113.7
+        mask: 255.255.255.0

@@ -1,0 +1,1627 @@
+---
+ip:
+  domain:
+    lookup-settings:
+      lookup:
+        source-interface:
+          Vlan: (mgmt_vlan_number)
+
+    name: (facility).chevrontexaco.net
+
+
+  name-server:
+    APAC:
+      no-vrf:
+      - 146.40.4.34
+      - 146.45.8.34
+      - 146.40.46.35
+      - 146.40.112.32
+      - 146.40.224.16
+
+    EMEA:
+      no-vrf:
+      - 146.38.64.8
+      - 146.38.32.8
+      - 146.27.66.35
+
+    US:
+      no-vrf:
+      - 146.36.82.34
+      - 146.36.80.34
+      - 146.27.66.35
+      - 146.27.66.36
+
+  forward-protocol:
+    udp:
+      domain: false
+      nameserver: false
+      netbios-dgm: false
+      netbios-ns: false
+      tacacs: false
+      tftp: false
+      time: false
+
+
+  ftp:
+    source-interface:
+      Vlan: (mgmt_vlan_number)
+
+
+  source-route: false
+
+
+  ssh:
+    version: 2
+
+
+  tcp:
+    path-mtu-discovery: {}
+
+
+  tftp:
+    source-interface:
+      Vlan: (mgmt_vlan_number)
+
+
+  access-list:
+    standard:
+    - name: cvx-snmpv3-acl
+      access-list-seq-rule:
+      - sequence: '10'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.22.71.201
+
+      - sequence: '20'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.42.69.246
+
+      - sequence: '30'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.35.147.59
+
+      - sequence: '40'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.3.35
+
+      - sequence: '50'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.2.7
+
+      - sequence: '60'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.2.8
+
+      - sequence: '70'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.2.11
+
+      - sequence: '80'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.2.12
+
+      - sequence: '90'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.2.13
+
+      - sequence: '100'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.3.120
+
+      - sequence: '110'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.42.255.132
+
+      - sequence: '120'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.136.0
+            mask: 0.0.3.255
+
+      - sequence: '130'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.140.0
+            mask: 0.0.3.255
+
+      - sequence: '140'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.0.0
+            mask: 0.0.255.255
+
+      - sequence: '150'
+        deny:
+          std-ace:
+            any:
+            - null
+            log:
+            - null
+
+
+    - name: 20
+      access-list-seq-rule:
+      - sequence: '10'
+        permit:
+          std-ace:
+            ipv4-prefix: 10.0.0.0
+            mask: 0.63.255.255
+
+      - sequence: '20'
+        permit:
+          std-ace:
+            ipv4-prefix: 10.128.0.0
+            mask: 0.7.255.255
+
+      - sequence: '30'
+        permit:
+          std-ace:
+            ipv4-prefix: 10.254.0.0
+            mask: 0.0.255.255
+
+      - sequence: '40'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.22.0.0
+            mask: 0.1.255.255
+
+      - sequence: '50'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.24.0.0
+            mask: 0.7.255.255
+
+      - sequence: '60'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.32.0.0
+            mask: 0.7.255.255
+
+      - sequence: '70'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.40.0.0
+            mask: 0.3.255.255
+
+      - sequence: '80'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.44.0.0
+            mask: 0.1.255.255
+
+      - sequence: '90'
+        permit:
+          std-ace:
+            ipv4-prefix: 146.46.0.0
+            mask: 0.0.255.255
+
+      - sequence: '100'
+        permit:
+          std-ace:
+            ipv4-prefix: 136.171.0.0
+            mask: 0.0.255.255
+
+      - sequence: '110'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.140.0
+            mask: 0.0.3.255
+
+      - sequence: '120'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.136.0
+            mask: 0.0.3.255
+
+      - sequence: '130'
+        permit:
+          std-ace:
+            ipv4-prefix: 139.65.0.0
+            mask: 0.0.255.255
+
+      - sequence: '140'
+        permit:
+          std-ace:
+            ipv4-prefix: 134.248.0.0
+            mask: 0.0.255.255
+
+      - sequence: '150'
+        deny:
+          std-ace:
+            any:
+            - null
+            log:
+            - null
+
+
+    - name: 40
+      access-list-seq-rule:
+        APAC:
+        - sequence: '10'
+          permit:
+            std-ace:
+              ipv4-prefix: 134.248.2.29
+
+        - sequence: '20'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.40.10.21
+
+        - sequence: '30'
+          deny:
+            std-ace:
+              any:
+              - null
+              log:
+              - null
+
+        US:
+        - sequence: '10'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.22.8.197
+
+        - sequence: '20'
+          permit:
+            std-ace:
+              ipv4-prefix: 134.248.2.29
+
+        - sequence: '30'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.22.70.251
+
+        - sequence: '40'
+          deny:
+            std-ace:
+              any:
+              - null
+              log:
+              - null
+
+        EMEA:
+        - sequence: '10'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.22.70.251
+
+        - sequence: '20'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.38.105.70
+
+        - sequence: '30'
+          permit:
+            std-ace:
+              ipv4-prefix: 146.38.37.9
+
+        - sequence: '40'
+          deny:
+            std-ace:
+              any:
+              - null
+              log:
+              - null
+
+    extended:
+    - name: IP-Adm-V4-Int-ACL-global
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 443
+
+
+    - name: MARK-DSCP-AF11
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: smtp
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: smtp
+          dst-any:
+          - null
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 8080
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 8080
+          dst-any:
+          - null
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 10565
+          dst-range2: 10566
+
+      - sequence: '60'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 10565
+          src-range2: 10566
+          dst-any:
+          - null
+
+      - sequence: '70'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 16384
+          dst-range2: 32767
+
+
+    - name: MARK-DSCP-AF21
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: domain
+          dst-any:
+          - null
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: domain
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: bootpc
+          dst-any:
+          - null
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: bootps
+          dst-any:
+          - null
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: bootpc
+
+      - sequence: '60'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: bootps
+
+      - sequence: '70'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 22
+          src-range2: telnet
+          dst-any:
+          - null
+
+      - sequence: '80'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: 88
+          dst-any:
+          - null
+
+      - sequence: '90'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 88
+
+      - sequence: '100'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 88
+          dst-any:
+          - null
+
+      - sequence: '110'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 88
+
+      - sequence: '120'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: netbios-ns
+          dst-any:
+          - null
+
+      - sequence: '130'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: netbios-ns
+
+      - sequence: '140'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 1494
+          dst-any:
+          - null
+
+      - sequence: '150'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 1494
+
+      - sequence: '160'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 3389
+          dst-any:
+          - null
+
+      - sequence: '170'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 3389
+
+      - sequence: '180'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: tftp
+
+      - sequence: '190'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: tftp
+          dst-any:
+          - null
+
+      - sequence: '200'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 1812
+          src-range2: 1813
+          dst-any:
+          - null
+      - sequence: '210'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 1812
+          dst-range2: 1813
+
+      - sequence: '220'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 1521
+          dst-range2: 1522
+
+      - sequence: '230'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 1521
+          src-range2: 1522
+          dst-any:
+          - null
+
+      - sequence: '240'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 1433
+
+      - sequence: '250'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 1433
+          dst-any:
+          - null
+
+      - sequence: '260'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 1434
+
+      - sequence: '270'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: 1434
+          dst-any:
+          - null
+
+      - sequence: '280'
+        ace-rule:
+          action: permit
+          protocol: ip
+          any:
+          - null
+          dst-host: 146.23.28.198
+
+      - sequence: '290'
+        ace-rule:
+          action: permit
+          protocol: ip
+          host: 146.23.28.198
+          dst-any:
+          - null
+
+      - sequence: '300'
+        ace-rule:
+          action: permit
+          protocol: ip
+          any:
+          - null
+          dst-host: 144.5.224.25
+
+      - sequence: '310'
+        ace-rule:
+          action: permit
+          protocol: ip
+          host: 144.5.224.25
+          dst-any:
+          - null
+
+      - sequence: '320'
+        ace-rule:
+          action: permit
+          protocol: ip
+          any:
+          - null
+          dst-host: 146.40.4.91
+
+      - sequence: '330'
+        ace-rule:
+          action: permit
+          protocol: ip
+          host: 146.40.4.91
+          dst-any:
+          - null
+
+      - sequence: '340'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 16384
+          dst-range2: 32767
+          precedence: critical
+
+      - sequence: '350'
+        ace-rule:
+          action: permit
+          protocol: ip
+          any:
+          - null
+          dest-ipv4-address: 146.40.224.192
+          dest-mask: 0.0.0.31
+
+      - sequence: '360'
+        ace-rule:
+          action: permit
+          protocol: ip
+          ipv4-address: 146.40.224.192
+          mask: 0.0.0.31
+          dst-any:
+          - null
+
+      - sequence: '370'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '380'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '390'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '400'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '410'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '420'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50040
+          src-range2: 50059
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '430'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+      - sequence: '440'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+      - sequence: '450'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+      - sequence: '460'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+      - sequence: '470'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+      - sequence: '480'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50040
+          dst-range2: 50059
+
+
+    - name: MARK-DSCP-AF31
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 2000
+          dst-range2: 2002
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 2000
+          src-range2: 2002
+          dst-any:
+          - null
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 11000
+          dst-range2: 11999
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 11000
+          src-range2: 11999
+          dst-any:
+          - null
+
+
+    - name: MARK-DSCP-AF41
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 2326
+          src-range2: 2487
+          dst-any:
+          - null
+          dst-range1: 2326
+          dst-range2: 2487
+          dscp: af41
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dest-ipv4-address: 146.36.83.0
+          dest-mask: 0.0.0.31
+          dst-range1: 49152
+          dst-range2: 65535
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 146.36.83.0
+          mask: 0.0.0.31
+          src-range1: 49152
+          src-range2: 65535
+          dst-any:
+          - null
+          
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dest-ipv4-address: 146.38.58.0
+          dest-mask: 0.0.0.31
+          dst-range1: 49152
+          dst-range2: 65535
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 146.38.58.0
+          mask: 0.0.0.31
+          src-range1: 49152
+          src-range2: 65535
+          dst-any:
+          - null
+
+      - sequence: '60'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dest-ipv4-address: 146.40.10.128
+          dest-mask: 0.0.0.31
+          dst-range1: 49152
+          dst-range2: 65535
+
+      - sequence: '70'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 146.40.10.128
+          mask: 0.0.0.31
+          src-range1: 49152
+          src-range2: 65535
+          dst-any:
+          - null
+
+      - sequence: '80'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '90'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '100'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '110'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '120'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '130'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50020
+          src-range2: 50039
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '140'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+      - sequence: '150'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+      - sequence: '160'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+      - sequence: '170'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+      - sequence: '180'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+      - sequence: '190'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50020
+          dst-range2: 50039
+
+
+    - name: MARK-DSCP-CS3
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: tacacs
+          dst-any:
+          - null
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: tacacs
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 1719
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: 1719
+          dst-any:
+          - null
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 1718
+          dst-range2: 1720
+
+      - sequence: '60'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 1718
+          src-range2: 1720
+          dst-any:
+          - null
+
+      - sequence: '70'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 2427
+
+      - sequence: '80'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: 2427
+          dst-any:
+          - null
+
+      - sequence: '90'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: 2428
+
+      - sequence: '100'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: 2428
+          dst-any:
+          - null
+
+      - sequence: '110'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 5060
+          dst-range2: 5061
+
+      - sequence: '120'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 5060
+          dst-range2: 5061
+
+      - sequence: '130'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 5060
+          src-range2: 5061
+          dst-any:
+          - null
+
+      - sequence: '140'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 5060
+          src-range2: 5061
+          dst-any:
+          - null
+
+      - sequence: '150'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 5556
+          src-range2: 5574
+          dst-any:
+          - null
+          dst-range1: 5555
+          dst-range2: 5565
+
+      - sequence: '160'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 5555
+          src-range2: 5565
+          dst-any:
+          - null
+          dst-range1: 5556
+          dst-range2: 5574
+
+      - sequence: '170'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: bgp
+
+      - sequence: '180'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-eq: bgp
+          dst-any:
+          - null
+
+
+    - name: MARK-DSCP-EF
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 16384
+          src-range2: 32767
+          dst-any:
+          - null
+          dscp: ef
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 16384
+          dst-range2: 32767
+          dscp: ef
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 16384
+          src-range2: 32767
+          dst-any:
+          - null
+          precedence: critical
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-range1: 16384
+          dst-range2: 32767
+          precedence: critical
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '60'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '70'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '80'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 52.112.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '90'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 13.107.64.0
+          dest-mask: 0.0.63.255
+
+      - sequence: '100'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          src-range1: 50000
+          src-range2: 50019
+          dest-ipv4-address: 52.120.0.0
+          dest-mask: 0.3.255.255
+
+      - sequence: '110'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+      - sequence: '120'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+      - sequence: '130'
+        ace-rule:
+          action: permit
+          protocol: udp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+      - sequence: '140'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.112.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+      - sequence: '150'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 13.107.64.0
+          mask: 0.0.63.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+      - sequence: '160'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          ipv4-address: 52.120.0.0
+          mask: 0.3.255.255
+          dst-any:
+          - null
+          dst-range1: 50000
+          dst-range2: 50019
+
+
+    - name: implicit_deny
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: deny
+          protocol: ip
+          any:
+          - null
+          dst-any:
+          - null
+
+
+    - name: implicit_permit
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: ip
+          any:
+          - null
+          dst-any:
+          - null
+
+
+    - name: preauth_v4
+      access-list-seq-rule:
+      - sequence: '10'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: domain
+
+      - sequence: '20'
+        ace-rule:
+          action: permit
+          protocol: tcp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: domain
+
+      - sequence: '30'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: bootps
+          dst-any:
+          - null
+
+      - sequence: '40'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          dst-any:
+          - null
+          dst-eq: bootpc
+
+      - sequence: '50'
+        ace-rule:
+          action: permit
+          protocol: udp
+          any:
+          - null
+          src-eq: bootpc
+          dst-any:
+          - null
+
+      - sequence: '60'
+        ace-rule:
+          action: deny
+          protocol: ip
+          any:
+          - null
+          dst-any:
+          - null
+
+
+  tacacs:
+    source-interface:
+      Vlan: (mgmt_vlan_number)
+
+
+  http:
+    server: false
+    secure-server: true
+

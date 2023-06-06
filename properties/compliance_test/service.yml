@@ -1,0 +1,13 @@
+---
+service:
+  timestamps:
+    debug-config:
+      datetime:
+        msec:
+        -
+    log-config:
+      datetime:
+        msec:
+        -
+  call-home:
+  -

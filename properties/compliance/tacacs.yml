@@ -1,0 +1,57 @@
+---
+tacacs:
+  server:
+    APAC:
+    - name: NADC_ACS
+      address:
+        ipv4: 139.65.137.60
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+    - name: PERTH_ACS
+      address:
+        ipv4: 146.45.1.85
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+    - name: SIN_ACS
+      address:
+        ipv4: 139.65.139.143
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+
+    US:
+    - name: NADC_ACS
+      address:
+        ipv4: 139.65.137.60
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+    - name: HOU_ACS
+      address:
+        ipv4: 139.65.136.58
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+
+    EMEA:
+    - name: LON_ACS
+      address:
+        ipv4: 139.65.138.26
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08
+    - name: HOU_ACS
+      address:
+        ipv4: 139.65.136.58
+      timeout: 10
+      key:
+        encryption: '7'
+        key: 06031D344F4B1A1606041B08

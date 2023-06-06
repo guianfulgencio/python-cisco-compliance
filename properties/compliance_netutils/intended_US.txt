@@ -1,0 +1,40 @@
+!
+enable secret 9 $9$nvdehFKbdNgrB.$ug6ksFUQaI/9G9CxCg.VyyPWsh2I6uWITfUyw4242XQ
+!
+username expert privilege 15 secret 9 $9$oVo20fvRydA9nU$6fCPBwsSR8XE2XVCQ0CM.zUZw0hJjkvBaAdr8nqILy2
+!
+banner exec ^CC
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+banner incoming ^CC
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+banner login ^CC
+      **************************************************************************
+      * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+      * education. IOSv is provided as-is and is not supported by Cisco's      *
+      * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+      * of the IOSv Software or Documentation to any third party for any       *
+      * purposes is expressly prohibited except as otherwise authorized by     *
+      * Cisco in writing.                                                      *
+      **************************************************************************^C
+!
+tacacs server HOU_ACS
+ address ipv4 139.65.136.58
+ timeout 10
+tacacs server NADC_ACS
+ address ipv4 139.65.143.4
+ timeout 10
+ !

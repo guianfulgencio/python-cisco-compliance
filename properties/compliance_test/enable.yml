@@ -1,0 +1,6 @@
+---
+enable:
+  secret:
+    type: '9'
+    secret: "$9$nvdehFKbdNgrB.$ug6ksFUQaI/9G9CxCg.VyyPWsh2I6uWITfUyw4242XQ"
+

@@ -1,0 +1,25 @@
+---
+service:
+  password-encryption:
+  - null
+  timestamps:
+    debug:
+      datetime:
+        msec:
+          localtime:
+            show-timezone:
+            - null
+    log:
+      datetime:
+        msec:
+        - null
+        localtime:
+        - null
+        show-timezone:
+        - null
+  call-home:
+  - null
+  tcp-keepalives-in:
+  - null
+  tcp-keepalives-out:
+  - null

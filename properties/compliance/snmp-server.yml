@@ -1,0 +1,432 @@
+---
+snmp-server:
+
+  contact: "NOC: +1 713-754-4662 or CTN 842-3311 // GlobalNetOps1@chevron.com"
+
+  enable:
+    enable-choice:
+      traps:
+        config:
+        - null
+
+        entity:
+        - null
+
+        envmon:
+          fan:
+          - null
+
+          shutdown:
+          - null
+
+          supply:
+          - null
+
+          temperature:
+          - null
+
+          status:
+          - null
+
+        ipmulticast:
+        - null
+
+        memory: {}
+
+        snmp:
+          coldstart:
+          - null
+
+          linkdown:
+          - null
+
+          linkup:
+          - null
+
+          warmstart:
+          - null
+
+        tty:
+        - null
+
+  group:
+  - id: CVX
+    v3:
+      security-level: priv
+
+  - id: CVX-NMS
+    v3:
+      security-level: priv
+      read: V3Read
+      write: V3Write
+      notify: V3Notify
+      access: cvx-snmpv3-acl
+
+  - id: CVX2
+    v3:
+      security-level: priv
+
+  - id: cvx2021
+    v3:
+      security-level: priv
+
+  host:
+    APAC:
+    - ip-address: 139.65.136.41
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: CVX2
+      informs:
+      - null
+      version: '3'
+      security-level: auth
+
+    - ip-address: 139.65.136.41
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.13
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.13
+      community-or-user: CVX2
+      informs:
+      - null
+      version: '3'
+      security-level: auth
+
+    - ip-address: 139.65.138.13
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.142.8
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.142.8
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.142.8
+      community-or-user: cvx2021
+      version: '3'
+      security-level: auth
+
+    - ip-address: 139.65.142.12
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.142.12
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.142.12
+      community-or-user: cvx2021
+      version: '3'
+      security-level: auth
+
+    - ip-address: 146.40.3.35
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.40.3.35
+      community-or-user: CVX2
+      informs:
+      - null
+      version: '3'
+      security-level: auth
+
+    - ip-address: 146.40.3.35
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    EMEA:
+    - ip-address: 139.65.138.13
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.13
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.13
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.40.3.35
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.40.3.35
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.40.3.35
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.9
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.9
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.138.9
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    US:
+    - ip-address: 139.65.137.144
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.137.144
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.137.144
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.22.71.201
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.22.71.201
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 146.22.71.201
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.41
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.12
+      community-or-user: CVX
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.12
+      community-or-user: CVX2
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+    - ip-address: 139.65.136.12
+      community-or-user: cvx2021
+      version: '3'
+      security-level: priv
+      trap-enable:
+        config:
+        - null
+
+  location:  |
+    Facility / Address separated by commas (6750 Ayala Ave, 6Th Flr, Makati City, Metro Manila) / Country / Region / ISO Country code- Support Org-Utility-Utility Name (PH-NA-Utility-Campus-Metro)/Criticality (Criticality-Medium)
+    (example: PHHQ / 6750 Ayala Ave, 6Th Flr, Makati City, Metro Manila / Philippines / APAC /PH-NA-Utility-Campus-Metro/Criticality-Medium)
+
+  trap:
+    link:
+      ietf:
+      - null
+
+  trap-source:
+    Vlan: (mgmt_vlan_number)
+
+  user:
+    names:
+    - username: CVX
+      grpname: CVX-NMS
+      v3:
+        auth:
+          sha:
+            auth:
+              authpass: raZoW4CTgF4nLoMKz05l
+              priv:
+                aes:
+                  algo128:
+                    privpass:
+                      privpass: h3Y3N1j71SL9HEsZT1k
+
+    - username: CVX2
+      grpname: CVX-NMS
+      v3:
+        auth:
+          sha:
+            auth:
+              authpass: cZLY5veLD2tHCO4a6drqz8m
+              priv:
+                aes:
+                  algo128:
+                    privpass:
+                      privpass: URSXcN6iGsevpfwmLWO3bFG
+
+  view:
+  - name: V3Notify
+    mib: iso
+    inc-exl: included
+
+  - name: V3Read
+    mib: iso
+    inc-exl: included
+
+  - name: V3Write
+    mib: iso
+    inc-exl: included
+

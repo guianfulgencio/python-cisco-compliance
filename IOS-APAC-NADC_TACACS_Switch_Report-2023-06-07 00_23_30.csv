@@ -1,0 +1,17 @@
+,IP address,Device Name,Is Alive,First Login Name,Good SSH Connection,Is SDWAN,Running-Config,Initial tacacs config,Good Rollback,local admin,Good SSH connection for second login,Good SSH connection for third login,Tacacs Verified,Post tacacs config,Copied_run_to_start,Succesfully Cancelled Rollback
+1,136.171.179.55,TMA_C9407,True,svc-spectrum,True,False,True,"aaa group server tacacs+ ACS
+ server name HOU_ACS
+ server name HOU2_ACS
+ ip vrf forwarding Mgmt-vrf
+ ip tacacs source-interface GigabitEthernet0/0
+ 10 permit tcp any eq tacacs any
+ 20 permit tcp any any eq tacacs
+tacacs server HOU_ACS
+ address ipv4 139.65.136.58
+ key 7 06031D344F4B1A1606041B08
+ timeout 10
+tacacs server HOU2_ACS
+ address ipv4 139.65.143.4
+ key 7 06031D344F4B1A1606041B08
+ timeout 10
+TMA_C9407#",False,False,False,False,False,None,False,False

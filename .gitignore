@@ -1,0 +1,5 @@
+__pycache__
+cml_lab/scripts/__pycache__
+backup_configs
+*.log
+phhq_device_configurations
